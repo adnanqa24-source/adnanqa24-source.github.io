@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adnan Umer — SQA Automation Engineer & SDET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5ede1;
+      --surface-base: #f7f1e7;
+      --surface-card: #efe7db;
+      --surface-dark: #2b211b;
+      --border-subtle: #ded5c7;
+      --border-card: #dcd1c2;
+      --border-dark: #4a3b32;
+      
+      --text-main: #2b211b;
+      --text-body: #615246;
+      --text-muted: #8c7a6e;
+      --text-light: #f7f1e7;
+      --text-light-dim: #d0c2b2;
+      
+      --caramel: #9c5c2d;
+      --caramel-bright: #d98f4c;
+      
+      --mono: 'Space Mono', monospace;
+      --sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 4rem 1.5rem;
+    }
+
+    .container { max-width: 1160px; margin: 0 auto; }
+
+    /* Top Identity Header */
+    header {
+      margin-bottom: 3.5rem;
+      border-bottom: 2px solid var(--text-main);
+      padding-bottom: 2.5rem;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .status-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--caramel);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--caramel);
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      max-width: 880px;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .btn-solid {
+      background: var(--text-main);
+      color: var(--text-light);
+    }
+    .btn-solid:hover { background: #403229; }
+    
+    .btn-outline {
+      background: var(--surface-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-card);
+    }
+    .btn-outline:hover {
+      border-color: var(--caramel);
+      color: var(--caramel);
+    }
+
+    /* Section Titles */
+    .sec-header { margin: 4rem 0 1.5rem; }
+    .sec-kicker {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--caramel);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.25rem;
+    }
+    .sec-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.015em;
+    }
+
+    /* Section Container Card */
+    .horizontal-flow-block {
+      background: var(--surface-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hf-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--text-main);
+      padding-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .hf-heading { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
+    .hf-tag { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; color: var(--caramel); text-transform: uppercase; }
+
+    /* Horizontal Sequential Rail */
+    .hf-rail {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .hf-rail { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 550px) { .hf-rail { grid-template-columns: 1fr; } }
+
+    /* 3-Column Variant for Visual & Compliance Testing */
+    .hf-rail-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 800px) { .hf-rail-3 { grid-template-columns: 1fr; } }
+
+    .hf-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hf-card-num {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--caramel);
+      margin-bottom: 0.5rem;
+    }
+    .hf-card-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; }
+    .hf-card-desc { font-size: 0.88rem; color: var(--text-body); line-height: 1.55; }
+
+    /* Bottom Split Dark Container */
+    .hf-split {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      background: var(--surface-dark);
+      color: var(--text-light);
+      padding: 2.2rem;
+      border-radius: 6px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 780px) { .hf-split { grid-template-columns: 1fr; } }
+    
+    .hf-summary h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-light); }
+    .hf-summary p { font-size: 0.92rem; color: var(--text-light-dim); line-height: 1.6; margin-bottom: 1rem; }
+    
+    .hf-stats-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      border-left: 1px solid var(--border-dark);
+      padding-left: 2rem;
+    }
+    @media (max-width: 780px) { 
+      .hf-stats-block { 
+        border-left: none; 
+        padding-left: 0; 
+        border-top: 1px solid var(--border-dark); 
+        padding-top: 1.5rem; 
+      } 
+    }
+    
+    .hf-stat-item { display: flex; flex-direction: column; }
+    .hf-stat-big { font-family: var(--mono); font-size: 1.8rem; font-weight: 700; color: var(--caramel-bright); }
+    .hf-stat-sub { font-size: 0.78rem; color: var(--text-light-dim); text-transform: uppercase; margin-top: 0.2rem; }
+
+    /* Code View */
+    .hf-code-terminal {
+      background: #1c1511;
+      border: 1px solid var(--border-dark);
+      border-radius: 4px;
+      padding: 1.1rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--text-light-dim);
+      overflow-x: auto;
+    }
+    .c-comment { color: #8a7b70; }
+    .c-key { color: var(--caramel-bright); font-weight: 700; }
+    .c-val { color: #f5ede1; }
+
+    /* Experience Timeline */
+    .timeline-item {
+      border-left: 2px solid var(--border-subtle);
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--caramel);
+    }
+    .item-role { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+    .item-meta { font-size: 0.85rem; font-family: var(--mono); color: var(--caramel); margin-bottom: 0.85rem; }
+    .item-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .item-list li { font-size: 0.92rem; color: var(--text-body); line-height: 1.65; }
+    .item-list strong { color: var(--text-main); font-weight: 700; }
+
+    /* Skills Pill Grid */
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .skill-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--surface-card);
+      border: 1px solid var(--border-card);
+      padding: 0.4rem 0.85rem;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 2rem;
+      font-family: var(--mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- IDENTITY HEADER -->
+    <header>
+      <div class="header-top">
+        <span class="status-tag">Status // Open to Opportunities</span>
+        <span class="status-tag">Location // Lahore, Pakistan</span>
+      </div>
+      <h1>Adnan Umer</h1>
+      <div class="hero-sub">Associate SQA Automation Engineer / SDET</div>
+      <p class="hero-desc">
+        Quality assurance engineer with almost 1.5 years specializing in test automation and CI/CD integration. Passionate about building robust testing frameworks and ensuring product reliability at scale.
+      </p>
+
+      <div class="actions">
+        <a href="mailto:adnanqa24@gmail.com" class="btn btn-solid">✉ adnanqa24@gmail.com</a>
+        <a href="https://www.linkedin.com/in/adnan-umer-b9040220a" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" class="btn btn-outline">GitHub Profile</a>
+        <a href="tel:+923094803917" class="btn btn-outline">📞 (+92) 309 4803917</a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: MANUAL QA METHODOLOGY -->
+    <div class="sec-header">
+      <div class="sec-kicker">Quality Governance</div>
+      <div class="sec-title">Manual QA &amp; Test Planning</div>
+    </div>
+
+    <div class="horizontal-flow-block">
+      <div class="hf-top">
+        <div>
+          <span class="hf-tag">Process</span>
+          <h3 class="hf-heading">Test Planning, User Journeys &amp; Defect Governance</h3>
+        </div>
+      </div>
+
+      <div class="hf-rail">
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 01</div>
+          <div class="hf-card-title">Test Planning &amp; Coverage</div>
+          <div class="hf-card-desc">Mapping site coverage, application workflows, and acceptance criteria to ensure full validation across releases.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 02</div>
+          <div class="hf-card-title">Journey Isolation</div>
+          <div class="hf-card-desc">Dividing and isolating distinct user journeys to validate state transitions and end-to-end functionality without cross-flow dependencies.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 03</div>
+          <div class="hf-card-title">Test Classification</div>
+          <div class="hf-card-desc">Classifying test cases systematically into smoke, functional, and regression suites for efficient sprint execution.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 04</div>
+          <div class="hf-card-title">Defect Reporting</div>
+          <div class="hf-card-desc">Logging detailed bug reports in Jira with clear reproduction steps, expected vs. actual behavior, and verification documentation.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROFESSIONAL EXPERIENCE -->
+    <div class="sec-header">
+      <div class="sec-kicker">Career Timeline</div>
+      <div class="sec-title">Professional Experience</div>
+    </div>
+
+    <!-- Devix - Associate SQA -->
+    <div class="timeline-item">
+      <div class="item-role">Associate SQA Automation Engineer / SDET &bull; Devix</div>
+      <div class="item-meta">2025 – Present | Lahore, Pakistan</div>
+      <ul class="item-list">
+        <li>
+          <strong>Automation Framework Engineering:</strong> Scaled and enhanced a Playwright (TypeScript) architecture across multiple projects, enabling environment-agnostic execution across Dev, Staging, and Production via runtime variables and leveraging session storage-state caching to eliminate redundant logins and accelerate execution runs.
+        </li>
+        <li>
+          <strong>End-to-End, Visual Regression &amp; API Testing:</strong> Automated responsive cross-browser E2E journeys, executed Postman API validations across schemas and transactional payloads, and implemented deep visual regression testing (Pixelmatch, Percy, Applitools Eyes) to catch layout and DOM/CSS defects (sub-pixel shifts, margins, paddings, bounding boxes) missed by manual inspection.
+        </li>
+        <li>
+          <strong>Compliance, Accessibility &amp; Quality Auditing:</strong> Conducted accessibility testing against WCAG 2.0 standards using Axe-core (keyboard navigation, screen readers, contrast, ARIA roles) and regulatory data privacy checks under HIPAA and FERPA protocols, alongside functional, smoke, and exploratory testing managed through Jira and Confluence.
+        </li>
+        <li>
+          <strong>Linux Server Administration &amp; CI/CD:</strong> Provisioned and maintained a dedicated remote Linux server hosting Jenkins on a custom port, managing core system upgrades, dependencies, and declarative pipelines with scheduled cron runs, integrated with hosted Allure reporting tools for rapid triage.
+        </li>
+        <li>
+          <strong>Autonomous AI-Driven Testing Pipeline:</strong> Developed a 3-agent QA pipeline (Jam CLI + Playwright CLI) translating user screen recordings into Playwright suites, reducing LLM token overhead by ~89.8% via structured JSON, increasing authoring velocity by 50x (down to 3.5 min/test), and enabling autonomous self-healing via debug attachment to resolve UI drift and cut maintenance by 83%.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Devix - Intern SQA -->
+    <div class="timeline-item">
+      <div class="item-role">Intern SQA Engineer &bull; Devix - Intern</div>
+      <div class="item-meta">Jul 05 – Sep 05 | Lahore, PK</div>
+      <ul class="item-list">
+        <li>Collaborated in Agile/Scrum sprints with developers and product managers to translate acceptance criteria into structured test scenarios.</li>
+        <li>Authored and executed manual and automated test suites for functional, regression, and smoke testing cycles.</li>
+        <li>Logged, tracked, and verified defect lifecycles in Jira while generating clear QA summary documentation.</li>
+      </ul>
+    </div>
+
+    <!-- Nine Property Group -->
+    <div class="timeline-item">
+      <div class="item-role">Property Finance Assistant &bull; Nine Property Group</div>
+      <div class="item-meta">2024 – 2025 | Remote, UK</div>
+      <ul class="item-list">
+        <li>Managed tenancy payment schedules, setting up and maintaining monthly, quarterly, and other agreed payment plans for tenants.</li>
+        <li>Coordinated rent and invoice follow-ups, monitoring payment schedules and communicating with tenants regarding outstanding or upcoming payments.</li>
+        <li>Maintained property and tenant records, coordinating tenancy updates, compliance documentation, and property requirements including gas, electrical, cleaning, and other maintenance works.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 3: AUTOMATION & REMOTE LINUX CI/CD -->
+    <div class="sec-header">
+      <div class="sec-kicker">Automation &amp; DevOps</div>
+      <div class="sec-title">Playwright Framework &amp; Remote Linux CI/CD</div>
+    </div>
+
+    <div class="horizontal-flow-block">
+      <div class="hf-top">
+        <div>
+          <span class="hf-tag">Architecture &amp; Infrastructure</span>
+          <h3 class="hf-heading">Playwright Automation &amp; Jenkins Orchestration</h3>
+        </div>
+      </div>
+
+      <div class="hf-rail">
+        <div class="hf-card">
+          <div class="hf-card-num">MODULE 01</div>
+          <div class="hf-card-title">Session Auth Caching</div>
+          <div class="hf-card-desc">Preserves browser authentication tokens across execution runs, eliminating redundant logins and accelerating execution speed.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">MODULE 02</div>
+          <div class="hf-card-title">Multi-Env Parity</div>
+          <div class="hf-card-desc">Configured runtime environment variables for deployment across Dev, Staging, and Production without changing test logic.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">MODULE 03</div>
+          <div class="hf-card-title">Linux Host Setup</div>
+          <div class="hf-card-desc">Provisioned and maintained a dedicated remote Linux server hosting Jenkins on a custom port, managing upgrades and dependencies.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">MODULE 04</div>
+          <div class="hf-card-title">CI/CD Pipeline Coverage</div>
+          <div class="hf-card-desc">Authored declarative Jenkins pipelines with scheduled cron runs: peak-hour smoke tests and off-peak regression suites.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: AUTONOMOUS AI PIPELINE -->
+    <div class="sec-header">
+      <div class="sec-kicker">AI-Driven Testing</div>
+      <div class="sec-title">Jam CLI + Playwright CLI Autonomous Pipeline</div>
+    </div>
+
+    <div class="horizontal-flow-block">
+      <div class="hf-top">
+        <div>
+          <span class="hf-tag">Pipeline Execution</span>
+          <h3 class="hf-heading">Autonomous Test Authoring &amp; Self-Healing</h3>
+        </div>
+      </div>
+
+      <!-- Technical Rail -->
+      <div class="hf-rail">
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 01</div>
+          <div class="hf-card-title">Intent Ingestion</div>
+          <div class="hf-card-desc">Jam CLI parses screen recordings directly into structured intent JSON trees without raw video frame dumps.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 02</div>
+          <div class="hf-card-title">DOM Analysis</div>
+          <div class="hf-card-desc">Playwright CLI queries live DOM states to inspect element attributes and build resilient multi-condition XPath unions.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 03</div>
+          <div class="hf-card-title">Test Scaffolding</div>
+          <div class="hf-card-desc">Scaffolds strongly typed Playwright test suites compliant with framework standards.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">STAGE 04</div>
+          <div class="hf-card-title">Autonomous Healing</div>
+          <div class="hf-card-desc">Attaches to the active test run (playwright-cli attach) during UI drift to update broken locators automatically.</div>
+        </div>
+      </div>
+
+      <!-- Business Value & Benchmark Split -->
+      <div class="hf-split">
+        <div class="hf-summary">
+          <h4>Business Value &amp; Engineering Rationale</h4>
+          <p>
+            By translating recording sessions via structured CLI intent trees instead of sending raw video or heavy DOM dumps, token overhead is minimized while accelerating scenario turnaround.
+          </p>
+          <div class="hf-code-terminal">
+            <span class="c-comment">// Synthesized resilient locator union</span><br>
+            <span class="c-key">submitBtn</span>: page.locator(<span class="c-val">"//button[@data-test-id='submit'] | //button[normalize-space()='CONTINUE']"</span>)
+          </div>
+        </div>
+
+        <div class="hf-stats-block">
+          <div class="hf-stat-item">
+            <span class="hf-stat-big">~89.8%</span>
+            <span class="hf-stat-sub">Token Overhead Reduction</span>
+          </div>
+          <div class="hf-stat-item">
+            <span class="hf-stat-big">50x</span>
+            <span class="hf-stat-sub">Authoring Velocity</span>
+          </div>
+          <div class="hf-stat-item">
+            <span class="hf-stat-big">83%</span>
+            <span class="hf-stat-sub">Maintenance Saved</span>
+          </div>
+          <div class="hf-stat-item">
+            <span class="hf-stat-big">&lt;1.8k</span>
+            <span class="hf-stat-sub">Intent JSON Tokens</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: COMPLIANCE, ACCESSIBILITY & VISUAL TESTING (3 TILES) -->
+    <div class="sec-header">
+      <div class="sec-kicker">Quality Governance</div>
+      <div class="sec-title">Visual Regression, Accessibility &amp; Regulatory Compliance</div>
+    </div>
+
+    <div class="horizontal-flow-block">
+      <div class="hf-rail-3">
+        <div class="hf-card">
+          <div class="hf-card-num">AREA 01</div>
+          <div class="hf-card-title">Visual Regression Testing</div>
+          <div class="hf-card-desc">Executed deep visual regression suites using Pixelmatch, Percy, and Applitools Eyes to detect sub-pixel layout shifts, padding discrepancies, and DOM/CSS defects.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">AREA 02</div>
+          <div class="hf-card-title">WCAG 2.0 Accessibility Testing</div>
+          <div class="hf-card-desc">Conducted accessibility testing utilizing Axe-core and manual inspections to verify full keyboard navigation, screen reader compatibility, ARIA landmark roles, and contrast ratios.</div>
+        </div>
+        <div class="hf-card">
+          <div class="hf-card-num">AREA 03</div>
+          <div class="hf-card-title">HIPAA &amp; FERPA Compliance Testing</div>
+          <div class="hf-card-desc">Tested application workflows against HIPAA and FERPA boundaries to verify proper sensitive data masking, secure session timeouts, and restricted role permissions for health and educational records.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: TECHNICAL SKILLS -->
+    <div class="sec-header">
+      <div class="sec-kicker">Technical Competencies</div>
+      <div class="sec-title">Skills &amp; Technologies</div>
+    </div>
+
+    <div class="horizontal-flow-block">
+      <div class="hf-rail" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="hf-card">
+          <div class="hf-card-title">Test Automation &amp; Tools</div>
+          <div class="skills-flex">
+            <span class="skill-badge">Playwright</span>
+            <span class="skill-badge">TypeScript</span>
+            <span class="skill-badge">Postman</span>
+            <span class="skill-badge">Axe-core</span>
+            <span class="skill-badge">Pixelmatch</span>
+            <span class="skill-badge">Percy</span>
+            <span class="skill-badge">Applitools Eyes</span>
+            <span class="skill-badge">Allure</span>
+            <span class="skill-badge">Selenium</span>
+          </div>
+        </div>
+
+        <div class="hf-card">
+          <div class="hf-card-title">DevOps &amp; Infrastructure</div>
+          <div class="skills-flex">
+            <span class="skill-badge">Jenkins</span>
+            <span class="skill-badge">Linux Server Administration</span>
+            <span class="skill-badge">SSH &amp; Custom Ports</span>
+            <span class="skill-badge">Git &amp; GitHub</span>
+            <span class="skill-badge">Jira</span>
+            <span class="skill-badge">Confluence</span>
+            <span class="skill-badge">Notion</span>
+            <span class="skill-badge">Jam CLI</span>
+            <span class="skill-badge">Playwright CLI</span>
+          </div>
+        </div>
+
+        <div class="hf-card">
+          <div class="hf-card-title">Standards &amp; Methodologies</div>
+          <div class="skills-flex">
+            <span class="skill-badge">WCAG 2.0 Standards</span>
+            <span class="skill-badge">HIPAA Compliance Testing</span>
+            <span class="skill-badge">FERPA Compliance Testing</span>
+            <span class="skill-badge">Test Planning &amp; Isolation</span>
+            <span class="skill-badge">Defect Lifecycle Triage</span>
+            <span class="skill-badge">Agile / Scrum</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="sec-header">
+      <div class="sec-kicker">Academic Background</div>
+      <div class="sec-title">Education</div>
+    </div>
+
+    <div class="horizontal-flow-block">
+      <div class="hf-top" style="margin-bottom: 0.5rem; border-bottom: none; padding-bottom: 0;">
+        <div>
+          <h3 class="hf-heading">BS in Computational Physics</h3>
+          <div style="font-size: 0.9rem; color: var(--caramel); font-family: var(--mono); margin-top: 0.25rem;">
+            University of the Punjab &bull; Lahore, Pakistan (2020 – 2024)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Adnan Umer &bull; SQA Automation Engineer &bull; Hosted on GitHub Pages</p>
+    </footer>
+
+  </div>
+</body>
+</html>
