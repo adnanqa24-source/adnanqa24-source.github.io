@@ -42,7 +42,6 @@
 
     .container { max-width: 1160px; margin: 0 auto; }
 
-    /* Top Identity Header */
     header {
       margin-bottom: 3.5rem;
       border-bottom: 2px solid var(--text-main);
@@ -119,7 +118,6 @@
       color: var(--caramel);
     }
 
-    /* Section Titles */
     .sec-header { margin: 4rem 0 1.5rem; }
     .sec-kicker {
       font-family: var(--mono);
@@ -137,7 +135,6 @@
       letter-spacing: -0.015em;
     }
 
-    /* Section Container Card */
     .horizontal-flow-block {
       background: var(--surface-base);
       border: 1px solid var(--border-subtle);
@@ -159,7 +156,6 @@
     .hf-heading { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
     .hf-tag { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; color: var(--caramel); text-transform: uppercase; }
 
-    /* Horizontal Sequential Rail */
     .hf-rail {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -168,7 +164,6 @@
     @media (max-width: 900px) { .hf-rail { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 550px) { .hf-rail { grid-template-columns: 1fr; } }
 
-    /* 3-Column Variant for Visual & Compliance Testing */
     .hf-rail-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -195,7 +190,6 @@
     .hf-card-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; }
     .hf-card-desc { font-size: 0.88rem; color: var(--text-body); line-height: 1.55; }
 
-    /* Bottom Split Dark Container */
     .hf-split {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -231,7 +225,6 @@
     .hf-stat-big { font-family: var(--mono); font-size: 1.8rem; font-weight: 700; color: var(--caramel-bright); }
     .hf-stat-sub { font-size: 0.78rem; color: var(--text-light-dim); text-transform: uppercase; margin-top: 0.2rem; }
 
-    /* Code View */
     .hf-code-terminal {
       background: #1c1511;
       border: 1px solid var(--border-dark);
@@ -247,7 +240,6 @@
     .c-key { color: var(--caramel-bright); font-weight: 700; }
     .c-val { color: #f5ede1; }
 
-    /* Experience Timeline */
     .timeline-item {
       border-left: 2px solid var(--border-subtle);
       padding-left: 1.5rem;
@@ -270,7 +262,6 @@
     .item-list li { font-size: 0.92rem; color: var(--text-body); line-height: 1.65; }
     .item-list strong { color: var(--text-main); font-weight: 700; }
 
-    /* Skills Pill Grid */
     .skills-flex {
       display: flex;
       flex-wrap: wrap;
@@ -301,7 +292,6 @@
 <body>
   <div class="container">
 
-    <!-- IDENTITY HEADER -->
     <header>
       <div class="header-top">
         <span class="status-tag">Status // Open to Opportunities</span>
@@ -310,13 +300,13 @@
       <h1>Adnan Umer</h1>
       <div class="hero-sub">Associate SQA Automation Engineer / SDET</div>
       <p class="hero-desc">
-        Quality assurance engineer with almost 1.5 years specializing in test automation and CI/CD integration. Passionate about building robust testing frameworks and ensuring product reliability at scale.
+        Quality assurance engineer with almost 1.5 years specializing in Playwright test automation, autonomous CLI test generation pipelines, and CI/CD integration. Passionate about building robust testing frameworks and ensuring product reliability at scale.
       </p>
 
       <div class="actions">
         <a href="mailto:adnanqa24@gmail.com" class="btn btn-solid">✉ adnanqa24@gmail.com</a>
         <a href="https://www.linkedin.com/in/adnan-umer-b9040220a" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
-        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" class="btn btn-outline">GitHub Profile</a>
+        <a href="https://github.com/adnanqa24-source" target="_blank" class="btn btn-outline">GitHub Profile</a>
         <a href="tel:+923094803917" class="btn btn-outline">📞 (+92) 309 4803917</a>
       </div>
     </header>
@@ -448,7 +438,7 @@
       </div>
     </div>
 
-    <!-- SECTION 4: AUTONOMOUS AI PIPELINE -->
+    <!-- SECTION 4: AUTONOMOUS AI PIPELINE (CORE CLI IMPLEMENTATION) -->
     <div class="sec-header">
       <div class="sec-kicker">AI-Driven Testing</div>
       <div class="sec-title">Jam CLI + Playwright CLI Autonomous Pipeline</div>
@@ -462,7 +452,6 @@
         </div>
       </div>
 
-      <!-- Technical Rail -->
       <div class="hf-rail">
         <div class="hf-card">
           <div class="hf-card-num">STAGE 01</div>
@@ -486,7 +475,6 @@
         </div>
       </div>
 
-      <!-- Business Value & Benchmark Split -->
       <div class="hf-split">
         <div class="hf-summary">
           <h4>Business Value &amp; Engineering Rationale</h4>
@@ -520,7 +508,7 @@
       </div>
     </div>
 
-    <!-- SECTION 5: COMPLIANCE, ACCESSIBILITY & VISUAL TESTING (3 TILES) -->
+    <!-- SECTION 5: COMPLIANCE, ACCESSIBILITY & VISUAL TESTING -->
     <div class="sec-header">
       <div class="sec-kicker">Quality Governance</div>
       <div class="sec-title">Visual Regression, Accessibility &amp; Regulatory Compliance</div>
@@ -546,7 +534,7 @@
       </div>
     </div>
 
-    <!-- SECTION 6: TECHNICAL SKILLS -->
+    <!-- SECTION 6: TECHNICAL SKILLS (MCP INCLUDED IN SKILLS) -->
     <div class="sec-header">
       <div class="sec-kicker">Technical Competencies</div>
       <div class="sec-title">Skills &amp; Technologies</div>
@@ -570,28 +558,29 @@
         </div>
 
         <div class="hf-card">
-          <div class="hf-card-title">DevOps &amp; Infrastructure</div>
+          <div class="hf-card-title">DevOps, Systems &amp; Protocols</div>
           <div class="skills-flex">
             <span class="skill-badge">Jenkins</span>
-            <span class="skill-badge">Linux Server Administration</span>
+            <span class="skill-badge">Linux Administration</span>
             <span class="skill-badge">SSH &amp; Custom Ports</span>
-            <span class="skill-badge">Git &amp; GitHub</span>
-            <span class="skill-badge">Jira</span>
-            <span class="skill-badge">Confluence</span>
-            <span class="skill-badge">Notion</span>
+            <span class="skill-badge">Model Context Protocol (MCP)</span>
             <span class="skill-badge">Jam CLI</span>
             <span class="skill-badge">Playwright CLI</span>
+            <span class="skill-badge">Git &amp; GitHub</span>
           </div>
         </div>
 
         <div class="hf-card">
-          <div class="hf-card-title">Standards &amp; Methodologies</div>
+          <div class="hf-card-title">Standards &amp; Governance</div>
           <div class="skills-flex">
             <span class="skill-badge">WCAG 2.0 Standards</span>
             <span class="skill-badge">HIPAA Compliance Testing</span>
             <span class="skill-badge">FERPA Compliance Testing</span>
             <span class="skill-badge">Test Planning &amp; Isolation</span>
             <span class="skill-badge">Defect Lifecycle Triage</span>
+            <span class="skill-badge">Jira</span>
+            <span class="skill-badge">Confluence</span>
+            <span class="skill-badge">Notion</span>
             <span class="skill-badge">Agile / Scrum</span>
           </div>
         </div>
